@@ -6,7 +6,7 @@ const {MongoClient} = require('mongodb');
 const dns = require('dns');
 const urlparser = require('url');
 
-const client = new MongoClient(process.env.MONGO_URI)
+const client = new MongoClient(process.env.DB_URL)
 const db = client.db('urlshortner')
 const urls = db.collection('urls') 
 
@@ -54,3 +54,4 @@ app.get("/api/shorturl/:short_url", (req, res) => {
 app.listen(port, function() {
   console.log(`Listening on port ${port}`);
 });
+
